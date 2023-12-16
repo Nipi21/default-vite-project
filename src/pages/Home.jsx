@@ -122,15 +122,17 @@ export const Home = () => {
                                         >
                                             Добавить задачу
                                         </Button>
+                                        >            
+                                            <Button
+                                                  onClick={() : void => removeTodoHandler (todo.id)} 
+                                                  background-"red.500"
+                                                  color="white"
+                                                  _hover={{
+                                                     background: 'red.600',
+                    
+                                            </Button>
                                   </chakra.form>
                             </Flex>
-                              <Button
-                                      onClick={() : void => removeTodoHandler (todo.id)} 
-                                      background-"red.500"
-                                      color="white"
-                                      _hover={{
-                                         background: 'red.600',
-                    
-                            </Button>
+                             
     )
 }
