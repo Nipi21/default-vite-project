@@ -118,21 +118,20 @@ export const Home = () => {
                                             color="white"
                                             _hover={{
                                                 background: 'blue.600'
-                        }}
-                    >
-                        <Button
-                            onClick={() : void => removeTodoHandler (todo.id)} 
-                            background-"red.500"
-                            color="white"
-                            _hover={{
-                                background: 'red.600',
-                            }}
-                        >
-                            Удалить
-                        </Button>
+                                            }}
+                                        >
+                                            Добавить задачу
+                                        </Button>
+    
+                                        <Button
+                                            onClick={() : void => removeTodoHandler (todo.id)} 
+                                            background-"red.500"
+                                            color="white"
+                                            _hover={{
+                                                background: 'red.600',
                     
-                    
-                </chakra.form>
-        </Flex>
+                                        </Button>
+                                 </chakra.form>
+                            </Flex>
     )
 }
