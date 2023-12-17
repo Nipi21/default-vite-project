@@ -121,8 +121,6 @@ export const Home = () => {
                                             }}
                                         >
                                             Добавить задачу
-                                        </Button>
-                                        >            
                                             <Button
                                                   onClick={() : void => removeTodoHandler (todo.id)} 
                                                   background-"red.500"
