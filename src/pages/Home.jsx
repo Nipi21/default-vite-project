@@ -62,75 +62,43 @@ export const Home = () => {
                                 background: 'red.600',
                             }}
                         >
-                          
-            
-                            <chakra.form
-                                onSubmit={(e) => {
-                                    e.preventDefault() // Без перезагрузки приложения после добавления задачи
-                                    createTodoHandler(text)
-                                }}
-                                display="flex"
-                                flexDirection="column"
-                                alignItems="center"
-                                gap="20px"
-                            >
-                                <Input
-                                    placeholder="Напишите задачу..."
-                                    maxLength={80}
-                                    value={text}
-                                    onChange={(e) => setText(e.target.value)}
-                                    w="300px"
-                                    h="32px"
-                                />
-                                <Button
-                                    isDisabled={!text.trim().length}
-                                    type="submit"
-                                    w="fit-content"
-                                    background="blue.500"
-                                    color="white"
-                                    _hover={{
-                                        background: 'blue.600',
-                                    }}
-                                >
-                                    <chakra. form
-                                        onSubmit={(e : FormEvent<HTMLFormElement> ) : void =› {
-                                            e.preventDefault () // Без перезагрузки приложения после добавления задачи
-                                            createTodoHandler (text)
-                                        }}
-                                        display="flex"
-                                        flexDirection="column"
-                                        alignItems="center"
-                                        gap="20px"
-                                    >
-                                        <Input
-                                            placeholder="Напишите задачу..."
-                                            maxLength={80}
-                                            value={text}
-                                            onChange={(e : ChangeEvent <HTMLInputElement>) : void => setText (e.target .value)}
-                                            w="300px"
-                                            h="32px"
-                                        />
-                                        <Button
-                                            isDisabled-{!text.trim().Length}
-                                            type="submit"
-                                            w="fit-content"
-                                            background-"bLue.500"
-                                            color="white"
-                                            _hover={{
-                                                background: 'blue.600'
-                                            }}
-                                        >
-                                            Добавить задачу
-                                            <Button
-                                                  onClick={() : void => removeTodoHandler (todo.id)} 
-                                                  background-"red.500"
-                                                  color="white"
-                                                  _hover={{
-                                                     background: 'red.600',
-                    
-                                            </Button>
-                                  </chakra.form>
-                            </Flex>
-                             
+                            Удалить
+                        </Button>
+                    </ListItem>
+                ))}
+            </List>
+            <chakra.form
+                onSubmit={(e) => {
+                    e.preventDefault() // Без перезагрузки приложения после добавления задачи
+                    createTodoHandler(text)
+                }}
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                gap="20px"
+            >
+                <Input
+                    placeholder="Напишите задачу..."
+                    maxLength={80}
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    w="300px"
+                    h="32px"
+                />
+                <Button
+                    isDisabled={!text.trim().length}
+                    type="submit"
+                    w="fit-content"
+                    background="blue.500"
+                    color="white"
+                    _hover={{
+                        background: 'blue.600',
+                    }}
+                >
+                    Добавить задачу
+                </Button>
+            </chakra.form>
+        </Flex>
     )
 }
+
