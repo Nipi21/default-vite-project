@@ -44,14 +44,7 @@ export const Home = () => {
             alignItems="center"
             
         >
-             <Heading textTransform="uppercase">Todo List</Heading>
-             <Button
-                onClick={() => {
-                    fileDownload(JSON.stringify(todos), 'todo-data.json')
-                }}
-            >
-                Экспортировать
-            </Button>
+            <Heading textTransform="uppercase">Todo List</Heading>
             <chakra.form
                 onSubmit={(e) => {
                     e.preventDefault() 
@@ -70,6 +63,13 @@ export const Home = () => {
                         }
                     }}
                 />
+                 <Button
+                onClick={() => {
+                    fileDownload(JSON.stringify(todos), 'todo-data.json')
+                }}
+            >
+                 Экспортировать
+                </Button>
                 <Button
                     type="submit"
                     background="blue.500"
