@@ -15,7 +15,6 @@ export const Home = () => {
     const [todos, setTodos] = useState([])
     const [text, setText] = useState('')
 
-    
 
     const createTodoHandler = (text) => {
         setTodos((prevState) => [...prevState, { id: Date.now(), text }])
