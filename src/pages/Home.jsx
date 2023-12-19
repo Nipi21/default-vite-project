@@ -10,9 +10,12 @@ import {
     Text,
 } from '@chakra-ui/react'
 
+
 export const Home = () => {
     const [todos, setTodos] = useState([])
     const [text, setText] = useState('')
+
+    
 
     const createTodoHandler = (text) => {
         setTodos((prevState) => [...prevState, { id: Date.now(), text }])
@@ -24,6 +27,14 @@ export const Home = () => {
         setTodos((prevState) => prevState.filter((todo) => todo.id !== id))
     }
 
+    const loadTodosFromFile = () => {
+        let fReader = new FileReader()
+        fReader.readAsText(file)
+        fReader.onload = () => {
+            setTodos(JSON.parse(fReader.result.toString()))
+        }
+    }
+
     return (
         <Flex
             flexDirection="column"
@@ -32,8 +43,46 @@ export const Home = () => {
             m="1rem"
             gap="1rem"
             alignItems="center"
+            
         >
-            <Heading textTransform="uppercase">Todo List</Heading>
+             <Heading textTransform="uppercase">Todo List</Heading>
+             <Button
+                onClick={() => {
+                    fileDownload(JSON.stringify(todos), 'todo-data.json')
+                }}
+            >
+                Экспортировать
+            </Button>
+            <chakra.form
+                onSubmit={(e) => {
+                    e.preventDefault() 
+                    loadTodosFromFile()
+                }}
+                display="flex"
+                marginTop="15px"
+                flexDirection="column"
+                alignItems="center"
+            >
+                <Input
+                    type={"file"}
+                    onChange={(e) => {
+                        if (e.target.files) {
+                            setFile(e.target.files[0]);
+                        }
+                    }}
+                />
+                <Button
+                    type="submit"
+                    background="blue.500"
+                    marginTop="5px"
+                    color="white"
+                    _hover={{
+                        background: 'blue.600',
+                    }}
+                >
+                    Импортировать
+                </Button>
+            </chakra.form>
             <List
                 h="60vh"
                 w="70vw"
@@ -69,7 +118,7 @@ export const Home = () => {
             </List>
             <chakra.form
                 onSubmit={(e) => {
-                    e.preventDefault() // Без перезагрузки приложения после добавления задачи
+                    e.preventDefault()
                     createTodoHandler(text)
                 }}
                 display="flex"
@@ -101,4 +150,3 @@ export const Home = () => {
         </Flex>
     )
 }
-
